@@ -16,6 +16,7 @@ a {
 }
 
 .App-footer {
+  font-size: smaller;
   text-align: center;
   margin: 30px auto;
 }
