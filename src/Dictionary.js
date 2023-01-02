@@ -8,7 +8,7 @@ export default function Dictionary(props) {
   let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
-  let [photos, setphotos] = useState(null);
+  let [photos, setPhotos] = useState(null);
 
   function handleDictionaryResponse(response) {
     setResults(response.data[0]);
@@ -16,7 +16,7 @@ export default function Dictionary(props) {
 
   function handlePexelsResponse(response) {
     console.log(response);
-    setphotos(response.data.photos);
+    setPhotos(response.data.photos);
   }
 
   function search() {
