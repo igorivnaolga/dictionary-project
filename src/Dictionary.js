@@ -9,34 +9,33 @@ export default function Dictionary(props) {
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
-  const apiKey = 'b6161bt14ab19630e1ac04c485f9o33c';
-  function handleDictionResponse(response) {
-    setResults(response.data[0]);
+  const apiKey = `8t518306o3b66f49626bf9e2c29fafe7`;
+
+  function handleKeywordChange(event) {
+    setKeyword(event.target.value);
   }
 
-  function handlePexelsResponse(response) {
+  function handleDictionaryResponse(response) {
+    setResults(response.data);
+  }
+
+  function handlePhotosResponse(response) {
     setPhotos(response.data.photos);
   }
 
   function search() {
-    // documentation: https://dictionaryapi.dev/e
-    //https://api.shecodes.io/dictionary/v1/define?word={word}&key={key}
+    //documentation https://www.shecodes.io/learn/apis/dictionary
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
-    axios.get(apiUrl).then(handleDictionResponse);
+    axios.get(apiUrl).then(handleDictionaryResponse);
 
-    //api.shecodes.io/images/v1/search?query={query}&key={key}
-    let imageApiUrl = `https://api.shecodes.io/images/v1/search?query=${keyword}&key=${apiKey}&per_page=9`;
-
-    axios.get(imageApiUrl).then(handlePexelsResponse);
+    //documentation https://www.shecodes.io/learn/apis/images
+    let imageApiUrl = `https://api.shecodes.io/images/v1/search?query=${keyword}&key=${apiKey}`;
+    axios.get(imageApiUrl).then(handlePhotosResponse);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     search();
-  }
-
-  function handleKeywordChange(event) {
-    setKeyword(event.target.value);
   }
 
   function load() {
@@ -49,6 +48,7 @@ export default function Dictionary(props) {
       <div className="Dictionary">
         <section>
           <h1>What word do you want to look up?</h1>
+
           <form onSubmit={handleSubmit}>
             <input
               type="search"
@@ -57,7 +57,7 @@ export default function Dictionary(props) {
             />
           </form>
           <div className="hint">
-            suggested words: sunset, wine, yoga, forest...
+            <strong>suggested words: </strong>sunrise, forest, yoga...
           </div>
         </section>
         <Results results={results} />
