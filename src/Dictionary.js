@@ -23,9 +23,10 @@ export default function Dictionary(props) {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
     axios.get(apiUrl).then(handleDictionResponse);
 
-    let pexelsApiKey =
-      '563492ad6f91700001000001914817e43bbc49c7b1738e776025011a';
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    let pexelsApiKey = 'b6161bt14ab19630e1ac04c485f9o33c';
+
+    //api.shecodes.io/images/v1/search?query={query}&key={key}
+    let pexelsApiUrl = `https://api.shecodes.io/images/v1/search?query=${keyword}&per_page=9`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
     axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
