@@ -9,7 +9,7 @@ export default function Dictionary(props) {
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
-  const apiKey = `8t518306o3b66f49626bf9e2c29fafe7`;
+  const apiKey = `b6161bt14ab19630e1ac04c485f9o33c`;
 
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
