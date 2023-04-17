@@ -24,12 +24,11 @@ export default function Dictionary(props) {
     axios.get(apiUrl).then(handleDictionResponse);
 
     let pexelsApiKey =
-      '563492ad6f91700001000001fdd29f0808df42bd90c33f42e128fa89';
+      '563492ad6f91700001000001914817e43bbc49c7b1738e776025011a';
     let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
     axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
-
   function handleSubmit(event) {
     event.preventDefault();
     search();
