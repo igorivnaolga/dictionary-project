@@ -25,11 +25,13 @@ export default function Dictionary(props) {
 
   function search() {
     //documentation https://www.shecodes.io/learn/apis/dictionary
-    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
+    let SheCodesApiKey = 'bd79ao40tde3dec118ca46bc3e6dd55f';
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${SheCodesApiKey}`;
     axios.get(apiUrl).then(handleDictionaryResponse);
 
     //documentation https://www.shecodes.io/learn/apis/images
-    let imageApiUrl = `https://api.shecodes.io/images/v1/search?query=${keyword}&key=${apiKey}`;
+    let imageApiKey = 'bd79ao40tde3dec118ca46bc3e6dd55f';
+    let imageApiUrl = `https://api.shecodes.io/images/v1/search?query=${keyword}&key=${imageApiKey}`;
     axios.get(imageApiUrl).then(handlePhotosResponse);
   }
 
